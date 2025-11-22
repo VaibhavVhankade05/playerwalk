@@ -1,0 +1,405 @@
+
+/* GLOBAL STYLES */
+body {
+  background-color: #000;
+  font-family: "Poppins", sans-serif;
+}
+
+/* MAIN WRAPPER */
+.login-landing {
+  padding: 60px 80px;
+}
+
+/* LEFT SECTION */
+.left-logo {
+  width: 110px;
+  margin-bottom: 40px;
+}
+
+.headline {
+  color: #fff;
+  font-size: 46px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.orange {
+  color: #fc6f36;
+}
+
+.subtitle {
+  margin-top: 20px;
+  font-size: 18px;
+  color: #ccc;
+  max-width: 500px;
+}
+
+/* FEATURES */
+.features {
+  margin-top: 60px;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.icon-box {
+  width: 45px;
+  height: 45px;
+  background-color: rgba(252, 111, 54, 0.2);
+  color: #fc6f36;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 15px;
+  font-size: 20px;
+}
+
+.feature-title {
+  color: #fff;
+  margin: 0;
+  font-weight: 600;
+}
+
+.feature-text {
+  margin: 0;
+  font-size: 14px;
+  color: #aaa;
+}
+
+/* LOGIN CARD */
+.login-card {
+  background-color: #1a1a1a;
+  padding: 45px;
+  border-radius: 20px;
+  width: 85%;
+  color: white;
+}
+
+.card-subtext {
+  color: #999;
+  margin-bottom: 30px;
+}
+
+/* LOGIN OPTIONS */
+.login-option {
+  width: 100%;
+  padding: 12px 10px;
+  border-radius: 10px;
+  margin-bottom: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.login-option i {
+  font-size: 18px;
+}
+
+.login-option:hover {
+  color: #fc6f36;
+}
+
+/* OR TEXT */
+.or-text {
+  text-align: center;
+  color: #777;
+  margin: 10px 0 20px;
+}
+
+/* TERMS */
+.terms {
+  margin-top: 20px;
+  font-size: 12px;
+  color: #808080;
+  text-align: center;
+}
+
+/* SIGNUP */
+.signup-text {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.orange-link {
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.orange-link:hover {
+  text-decoration: underline;
+  color: #fc6f36;
+}
+
+/* Orange Button */
+.btn-orange {
+  background-color: #FC6F36;
+  border: none;
+  padding: 10px 20px;
+  color: white;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  transition: 0.3s;
+}
+
+.btn-orange:hover {
+  background-color: #fe4e02;
+}
+
+.btn-orange:focus {
+  box-shadow: none;
+}
+
+/* BACK BUTTON */
+.btn-back {
+  background-color: transparent;
+  border: none;
+  padding: 10px 20px;
+  color: white;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  transition: 0.3s;
+}
+
+.btn-back:hover {
+  background-color: #232323;
+  color: #fc6f36;
+}
+
+/* INPUT FIELDS */
+.phone-input,
+.email-input,
+.otp-input {
+  background: transparent;
+  border: 2px solid #333;
+  padding: 12px 15px;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 10px;
+  transition: 0.3s ease;
+}
+
+.phone-input::placeholder,
+.email-input::placeholder,
+.otp-input::placeholder {
+  color: #777;
+}
+
+.phone-input:focus,
+.email-input:focus,
+.otp-input:focus {
+  border-color: #fc6f36;
+  box-shadow: 0 0 25px rgba(252, 111, 54, 0.6);
+  color: #fff;
+}
+
+.form-control {
+  background: transparent !important;
+  color: white !important;
+  border-radius: 10px;
+}
+
+/* ======================================================
+   RESPONSIVE BEHAVIOR
+====================================================== */
+
+@media (max-width: 992px) {
+  .login-landing {
+    padding: 30px 20px;
+  }
+
+  .login-card {
+    width: 100%;
+    padding: 35px;
+  }
+
+  .headline {
+    font-size: 34px;
+  }
+
+  .left-logo {
+    width: 90px;
+  }
+}
+
+@media (max-width: 768px) {
+  .login-landing {
+    padding: 20px;
+  }
+
+  .login-landing .row {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+  }
+
+  .left-section {
+    margin-bottom: 40px;
+    text-align: center !important;
+  }
+
+  .headline {
+    font-size: 28px;
+  }
+
+  .subtitle {
+    max-width: 100%;
+    font-size: 16px;
+  }
+
+  .features {
+    margin-top: 30px;
+  }
+
+  .feature-item {
+    justify-content: center;
+  }
+
+  .login-card {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .headline {
+    font-size: 24px;
+    line-height: 1.3;
+  }
+
+  .login-card {
+    padding: 25px;
+  }
+
+  .btn-orange {
+    font-size: 16px;
+  }
+
+  .icon-box {
+    width: 38px;
+    height: 38px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 360px) {
+  .headline {
+    font-size: 20px;
+  }
+
+  .login-card {
+    padding: 20px;
+  }
+
+  .btn-orange {
+    font-size: 15px;
+  }
+}
+
+/* ======================================================
+   LANDING PAGE CENTER LAYOUT (IF USED)
+====================================================== */
+
+.landing-container {
+  min-height: 100vh;
+  background-color: #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.landing-logo {
+  width: 520px;
+  margin-bottom: 40px;
+}
+
+.landing-title {
+  color: #fff;
+  font-size: 20px;
+  text-align: center;
+  opacity: 0.8;
+  margin-top: 10px;
+  margin-bottom: 50px;
+}
+
+/* Landing Responsive */
+@media (max-width: 992px) {
+  .landing-logo {
+    width: 380px;
+  }
+
+  .landing-title {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .landing-container {
+    text-align: center;
+  }
+
+  .landing-logo {
+    width: 260px;
+  }
+
+  .btn-orange {
+    width: 80%;
+  }
+}
+
+@media (max-width: 480px) {
+  .landing-logo {
+    width: 200px;
+  }
+
+  .btn-orange {
+    width: 90%;
+  }
+}
+
+/* ======================================================
+   CUSTOM SCROLLBAR (Orange with 0.5 opacity)
+====================================================== */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(252, 111, 54, 0.5);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(252, 111, 54, 0.8);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(252, 111, 54, 0.5) #000;
+}

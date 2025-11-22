@@ -1,0 +1,123 @@
+/* Fullscreen center layout */
+.landing-container {
+    min-height: 100vh;
+    background-color: #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Logo */
+.landing-logo {
+    width: 520px;     /* Bigger like your screenshot */
+    margin-bottom: 40px;
+}
+
+/* Subtitle */
+.landing-title {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 400;
+    margin-top: 10px;
+    margin-bottom: 50px; /* Big gap above button */
+    text-align: center;
+    opacity: 0.8;
+}
+
+/* Orange Button */
+.btn-orange {
+    background-color: #FC6F36;
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: 0.3s;
+}
+
+.btn-orange:hover {
+    background-color: #fe4e02;
+    color: white;
+}
+
+.btn-orange:focus {
+    box-shadow: none;
+}
+
+/* ============================
+   RESPONSIVE DESIGN
+============================ */
+
+/* Tablets (max-width: 992px) */
+@media (max-width: 992px) {
+    .landing-logo {
+        width: 380px;
+    }
+    .landing-title {
+        font-size: 18px;
+        margin-bottom: 40px;
+    }
+    .btn-orange {
+        font-size: 16px;
+        padding: 10px 18px;
+    }
+}
+
+/* Large Phones (max-width: 768px) */
+@media (max-width: 768px) {
+    .landing-logo {
+        width: 300px;
+    }
+    .landing-title {
+        font-size: 17px;
+        margin-bottom: 35px;
+    }
+    .btn-orange {
+        font-size: 16px;
+        padding: 8px 16px;
+    }
+}
+
+/* Small Phones (max-width: 576px) */
+@media (max-width: 576px) {
+    .landing-container {
+        padding: 20px;
+        text-align: center;
+    }
+
+    .landing-logo {
+        width: 240px;
+        margin-bottom: 30px;
+    }
+
+    .landing-title {
+        font-size: 16px;
+        margin-bottom: 30px;
+    }
+
+    .btn-orange {
+        width: 100%;
+        justify-content: center;
+        padding: 12px 15px;
+        font-size: 16px;
+    }
+}
+
+/* Extra small phones (max-width: 400px) */
+@media (max-width: 400px) {
+    .landing-logo {
+        width: 200px;
+    }
+    .landing-title {
+        font-size: 15px;
+    }
+    .btn-orange {
+        font-size: 15px;
+        padding: 10px 12px;
+    }
+}
