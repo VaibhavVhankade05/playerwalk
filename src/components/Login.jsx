@@ -161,7 +161,7 @@ export default function Login() {
 
   /* ---------------- UI ---------------- */
   return (
-    <div className="container-fluid login-landing">
+    <div className="container login-landing">
       <div className="row w-100 align-items-center">
         {/* LEFT */}
         <div className="col-lg-6 col-md-12 left-section">
