@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar";
 import Sidebar from "../components/home/Sidebar";
 import Post from "../components/home/Post";
 import Footer from "../components/Footer";
+import "../styles/home.css"
 
 export default function Home() {
   const [showFooter, setShowFooter] = useState(true);

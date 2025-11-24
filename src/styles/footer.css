@@ -1,5 +1,6 @@
 /* Footer slide animation */
-.footer {
+.footer-visible,
+.footer-hidden {
   position: fixed;
   bottom: 0;
   left: 0;
@@ -16,7 +17,6 @@
 .footer-hidden {
   transform: translateY(100%);
   opacity: 0;
-  pointer-events: none;
 }
 
 /* Bottom Tabs container */
@@ -27,8 +27,6 @@
   justify-content: space-around;
   align-items: center;
   padding: 12px 0;
-  backdrop-filter: blur(10px);
-  background-color: rgba(0, 0, 0, 0.95);
 }
 
 /* Tab */
@@ -43,13 +41,10 @@
   align-items: center;
   gap: 4px;
   transition: all 0.25s ease;
-  flex: 1;
-  padding: 8px 0;
 }
 
 .tab i {
   font-size: 22px;
-  transition: all 0.25s ease;
 }
 
 /* Active Tab */
@@ -59,46 +54,15 @@
   transform: translateY(-4px);
 }
 
-.tab.active i {
-  transform: scale(1.1);
-  filter: drop-shadow(0 2px 4px rgba(252, 111, 54, 0.3));
-}
-
 /* Hover effect */
-.tab:not(.active):hover {
+.tab:hover {
   color: #fff;
   opacity: 1;
-  transform: translateY(-2px);
-}
-
-/* Active tab pulse animation */
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-  100% { transform: scale(1); }
-}
-
-.tab.active i {
-  animation: pulse 2s infinite;
+  transform: translateY(-4px);
 }
 
 /* Responsive */
 @media (max-width: 600px) {
-  .tab i { 
-    font-size: 18px; 
-  }
-  .tab { 
-    font-size: 11px; 
-    padding: 6px 0;
-  }
-  .bottom-tabs {
-    padding: 10px 0;
-  }
-}
-
-/* Safe area for notched devices */
-@supports (padding: max(0px)) {
-  .bottom-tabs {
-    padding-bottom: max(12px, env(safe-area-inset-bottom));
-  }
+  .tab i { font-size: 18px; }
+  .tab { font-size: 11px; }
 }
