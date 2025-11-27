@@ -61,6 +61,16 @@
   transform: translateY(-4px);
 }
 
+.footer-link {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+
 /* Responsive */
 @media (max-width: 600px) {
   .tab i { font-size: 18px; }

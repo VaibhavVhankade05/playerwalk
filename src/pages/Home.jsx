@@ -4,6 +4,7 @@ import Sidebar from "../components/home/Sidebar";
 import Post from "../components/home/Post";
 import Footer from "../components/Footer";
 import "../styles/home.css"
+import Live from "../components/home/Live";
 
 export default function Home() {
   const [showFooter, setShowFooter] = useState(true);
@@ -44,6 +45,7 @@ export default function Home() {
   return (
     <div>
       <Navbar />
+      <Live/>
 
       <div className="container mt-5" style={{marginBottom:"100px"}}>
         <div className="row justify-content-center">

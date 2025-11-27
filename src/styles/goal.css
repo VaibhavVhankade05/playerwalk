@@ -1,0 +1,1790 @@
+/* ===== ROOT VARIABLES ===== */
+/* Define CSS custom properties for consistent theming */
+:root {
+  --bg: #0b0b0b;
+  --card: #141414;
+  --muted: #9b9b9b;
+  --accent: #fc6f36;
+  --accent-2: #ff9d00;
+  --green: #29bf12;
+  --blue: #00b4d8;
+  --glass: rgba(255, 255, 255, 0.03);
+  --radius: 14px;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+}
+
+/* ===== BASE STYLES ===== */
+/* Reset and base styling for all elements */
+* {
+  box-sizing: border-box;
+}
+
+/* Body styling with dark theme */
+body {
+  background: var(--bg);
+  margin: 0;
+  color: #eaeaea;
+  font-family: var(--font-family);
+}
+
+/* Main container for content */
+.container {
+  max-width: 1200px;
+  margin: 28px auto;
+  padding: 0 18px;
+}
+
+/* Subtitle text styling */
+.sub {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* ===== BUTTON STYLES ===== */
+/* Add goal button styling */
+.btn-add {
+  background: #fc6f36;
+  border: none;
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+/* Button hover effects */
+.btn-add:hover {
+  background: #ff7a42;
+  transform: translateY(-2px);
+  box-shadow: 0 0 10px rgba(252, 111, 54, 0.5);
+}
+
+/* ===== MODAL STYLES ===== */
+/* Modal overlay backdrop */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.75); /* darker */
+  backdrop-filter: blur(6px);
+  z-index: 5000 !important; /* highest */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Main modal container */
+.modal-box {
+  background: #141414;
+  width: 90%;
+  max-width: 550px;
+  padding: 24px;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.1);
+  animation: popUp 0.25s ease-out;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+/* Modal entrance animation */
+@keyframes popUp {
+  from { transform: scale(0.85); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
+
+/* Modal header section */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+/* Modal title */
+.modal-header h2 {
+  margin: 0;
+  font-size: 20px;
+  color: #fff;
+}
+
+/* Close button styling */
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 22px;
+  color: #ccc;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+/* Close button hover state */
+.close-btn:hover {
+    background:none;
+     border: none;
+  color: #fc6f36;
+}
+
+/* Modal subtitle text */
+.modal-sub {
+  color: #999;
+  font-size: 14px;
+  margin-bottom: 20px;
+  line-height: 1.4;
+}
+
+/* ===== FORM STYLES ===== */
+/* Form label styling */
+label {
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 10px;
+  display: block;
+  color: #eaeaea;
+}
+
+/* Input field base styling */
+.input-field,
+.textarea-field,
+select.input-field {
+  width: 100%;
+  background: #0d0d0d;
+  border: 1px solid #333;
+  color: #ddd;
+  padding: 12px;
+  border-radius: 10px;
+  margin-top: 6px;
+  outline: none;
+  font-size: 14px;
+}
+
+/* Input focus states */
+.input-field:focus,
+.textarea-field:focus,
+select.input-field:focus {
+  border: 1px solid #fc6f36;
+  box-shadow: 0 0 0 2px rgba(252, 111, 54, 0.1);
+}
+
+/* Textarea specific styling */
+.textarea-field {
+  min-height: 90px;
+  resize: vertical;
+  font-family: inherit;
+}
+
+/* Two-column form layout */
+.row-2 {
+  display: flex;
+  gap: 14px;
+  margin-top: 10px;
+}
+
+/* Form field group container */
+.field-group {
+  flex: 1;
+}
+
+/* Form submit button */
+.create-btn {
+  background: #fc6f36;
+  border: none;
+  color: white;
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  margin-top: 24px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+/* Submit button hover state */
+.create-btn:hover:not(:disabled) {
+  background: #ff7a42;
+  box-shadow: 0 0 15px rgba(252, 111, 54, 0.4);
+  transform: translateY(-1px);
+}
+
+/* Disabled submit button */
+.create-btn:disabled {
+  background: #666;
+  color: #999;
+  cursor: not-allowed;
+}
+
+/* ===== SELECT DROPDOWN STYLES ===== */
+/* Custom select styling */
+select.input-field {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: #0d0d0d;
+  border: 1px solid #333;
+  padding: 12px 14px;
+  color: #ddd;
+  border-radius: 10px;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg fill='%23fc6f36' height='18' width='18' viewBox='0 0 20 20'%3E%3Cpath d='M5.5 7l4.5 4.5L14.5 7'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 14px;
+}
+
+/* Select option styling */
+select.input-field option {
+  background: #0d0d0d !important;
+  color: #ffffff !important;
+  padding: 12px !important;
+  font-size: 14px !important;
+}
+
+/* Select option interaction states */
+select.input-field option:hover,
+select.input-field option:focus,
+select.input-field option:active {
+  background-color: transparent !important;
+  color: #fc6f36 !important;
+}
+
+/* Selected option styling */
+select.input-field option:checked {
+  background-color: transparent !important;
+  color: #fc6f36 !important;
+}
+
+/* Custom select container */
+.custom-select {
+  width: 100%;
+  background: #0d0d0d;
+  border: 1px solid #333;
+  padding: 12px 14px;
+  border-radius: 10px;
+  color: #ddd;
+  cursor: pointer;
+  position: relative;
+}
+
+/* Custom select hover state */
+.custom-select:hover {
+  border-color: #fc6f36;
+}
+
+/* Selected value display */
+.selected-value {
+  font-size: 14px;
+}
+
+/* Dropdown menu */
+.dropdown {
+  position: absolute;
+  top: 110%;
+  left: 0;
+  width: 100%;
+  background: #0e0e0e;
+  border: 1px solid #333;
+  border-radius: 10px;
+  overflow: hidden;
+  z-index: 1000;
+}
+
+/* Dropdown menu items */
+.dropdown-item {
+  padding: 12px;
+  font-size: 14px;
+  color: #ddd;
+}
+
+/* Dropdown item hover state */
+.dropdown-item:hover {
+  background: rgba(252, 111, 36, 0.1);
+  color: #fc6f36;
+}
+
+/* Dropdown item active state */
+.dropdown-item:active {
+  background: rgba(252, 111, 36, 0.2);
+  color: #fc6f36;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+/* Mobile responsive styles */
+@media (max-width: 480px) {
+  .container {
+    margin: 20px auto;
+    padding: 0 12px;
+  }
+  .row-2 {
+    flex-direction: column;
+    gap: 0;
+  }
+  .modal-box {
+    padding: 20px;
+    margin: 20px;
+  }
+  .modal-header h2 {
+    font-size: 18px;
+  }
+  .btn-add {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+}
+
+/* Footer visibility states */
+.footer-visible {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+.footer-hidden {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+/* Tablet responsive adjustments */
+@media (max-width: 768px) {
+  .d-flex.justify-content-between.align-items-center {
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .btn-add.me-5 {
+    margin-right: 0 !important;
+    align-self: flex-end;
+  }
+}
+
+/* ===== STATS CARDS SECTION ===== */
+/* Stats container layout */
+.top-stats {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 22px;
+  flex-wrap: wrap;
+}
+
+/* Individual stat card */
+.stat-card {
+  flex: 1;
+  min-width: 260px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.01),
+    rgba(255, 255, 255, 0.02)
+  );
+  border-radius: 12px;
+  padding: 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-width: 1px;
+  border-style: solid;
+  transition: 0.25s ease-out;
+}
+
+/* Orange stat card variant */
+.stat-card.orange {
+  border-color: rgba(252, 111, 54, 0.45);
+}
+.stat-card.orange:hover {
+  border-color: var(--accent);
+  box-shadow: 0 0 18px rgba(252, 111, 54, 0.35);
+}
+
+/* Green stat card variant */
+.stat-card.green {
+  border-color: rgba(41, 191, 18, 0.45);
+}
+.stat-card.green:hover {
+  border-color: var(--green);
+  box-shadow: 0 0 18px rgba(41, 191, 18, 0.35);
+}
+
+/* Blue stat card variant */
+.stat-card.blue {
+  border-color: rgba(0, 180, 216, 0.45);
+}
+.stat-card.blue:hover {
+  border-color: var(--blue);
+  box-shadow: 0 0 18px rgba(0, 180, 216, 0.35);
+}
+
+/* Stat icon container */
+.stat-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 10px;
+  background: rgba(252, 111, 54, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: var(--accent);
+}
+
+/* Green stat icon variant */
+.stat-icon.green {
+  background: rgba(41, 191, 18, 0.1);
+  color: var(--green);
+}
+
+/* Blue stat icon variant */
+.stat-icon.blue {
+  background: rgba(0, 180, 216, 0.1);
+  color: var(--blue);
+}
+
+/* Stat text content */
+.stat-body .stat-label {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.stat-body .stat-value {
+  font-weight: 700;
+  font-size: 18px;
+}
+
+/* Mobile stats layout */
+@media (max-width: 768px) {
+  .top-stats {
+    flex-direction: column;
+  }
+}
+
+/* ===== GOAL ITEM STYLES ===== */
+/* Individual goal card container */
+.goal-item {
+  background: var(--card);
+  border-radius: 12px;
+  padding: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+/* Goal header layout */
+.goal-item-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+/* Goal title styling */
+.goal-title {
+  font-weight: 700;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Badge base styling */
+.badge {
+  font-size: 11px;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+/* Blue badge variant (Batting) */
+.badge.blue {
+  background: rgba(0, 180, 216, 0.12);
+  color: var(--blue);
+  border: 1px solid rgba(0, 180, 216, 0.3);
+}
+
+/* Red badge variant (Bowling) */
+.badge.red {
+  background: rgba(255, 80, 80, 0.12);
+  color: #ff6b6b;
+  border: 1px solid rgba(255, 80, 80, 0.3);
+}
+
+/* Warning badge variant */
+.badge.warning {
+  background: rgba(255, 193, 7, 0.12);     /* Light yellow background */
+  color: #ffc107;                          /* Warning yellow */
+  border: 1px solid rgba(255, 193, 7, 0.3); /* Border tone */
+}
+
+/* Orange badge variant (Fitness) */
+.badge.orange {
+  background: rgba(252, 111, 54, 0.12);
+  color: var(--accent);
+  border: 1px solid rgba(252, 111, 54, 0.3);
+}
+
+/* Green badge variant (Fielding) */
+.badge.green {
+  background: rgba(41, 191, 18, 0.12);
+  color: var(--green);
+  border: 1px solid rgba(41, 191, 18, 0.3);
+}
+
+/* Goal subtitle */
+.goal-sub {
+  color: var(--muted);
+  font-size: 13px;
+  margin-top: 6px;
+}
+
+/* Mini badge for progress */
+.mini-badge {
+  background: rgba(255, 255, 255, 0.02);
+  padding: 6px 8px;
+  border-radius: 8px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* ===== PROGRESS BAR STYLES ===== */
+/* Progress section container */
+.progress-line {
+  margin-top: 10px;
+}
+
+/* Progress text */
+.progress-left {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+/* Progress bar container */
+.progress-bar {
+  height: 8px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+/* Progress fill */
+.progress {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  border-radius: 6px;
+}
+
+/* ===== GOAL FOOTER STYLES ===== */
+/* Goal footer layout */
+.progress-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+/* Deadline text */
+.deadline {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* Progress control buttons */
+.days-controls {
+  display: flex;
+  gap: 8px;
+}
+
+/* Control chip button */
+.chip {
+  background: none;
+  border: 1px solid #fc6f36;
+  border-radius: 10px;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+/* Chip hover state */
+.chip:hover{
+  background: #fc6f36;
+  border: 1px solid #fc6f36;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* View badges link */
+.view-badges {
+  margin-top: 10px;
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 13px;
+}
+
+/* ===== STREAK SECTION STYLES ===== */
+/* Streak section container */
+.streak-section {
+  margin: 22px 0;
+}
+
+/* Main streak card */
+.streak-card {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.02),
+    rgba(255, 255, 255, 0.01)
+  );
+  border-radius: 12px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+
+  /* 🔥 Updated border */
+  border: 2px solid #fc6f36;
+
+  box-shadow: 0 0 12px rgba(252, 111, 54, 0.25); /* optional glow */
+}
+
+/* Streak card hover effect */
+.streak-card:hover {
+  box-shadow: 0 0 20px rgba(252, 111, 54, 0.45);
+}
+
+/* Streak icon container */
+.streak-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(
+    180deg,
+    rgba(252, 111, 54, 0.12),
+    rgba(255, 157, 0, 0.06)
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  color: var(--accent);
+}
+
+/* Streak value display */
+.streak-value {
+  font-size: 28px;
+  font-weight: 800;
+}
+
+/* Streak label */
+.streak-label {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* Streak info row layout */
+.streak-info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+/* Premium/Purple badge */
+.badge.purple {
+  background: rgba(155, 89, 182, 0.12);          /* subtle purple bg */
+  color: #bf7bff;                                /* bright purple text */
+  border: 1px solid rgba(155, 89, 182, 0.3);     /* clean purple border */
+}
+
+/* Streak progress section */
+.streak-progress {
+  width: 100%;
+  margin-top: 12px;
+}
+
+/* Mini progress bar */
+.progress-mini {
+  height: 8px;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+/* Streak note text */
+.streak-note {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 8px;
+}
+
+/* ===== POWER-UPS SECTION STYLES ===== */
+/* Power-ups main container */
+.powerups-section {
+  margin-top: 20px;
+  padding: 20px;
+  border: 2px solid rgb(55, 55, 55);
+  border-radius: 20px;
+}
+
+/* Power-ups header layout */
+.powerups-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Section title styling */
+.section-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #ffd54f;
+}
+
+/* Coins display */
+.coins-display {
+  background: #2a1e00;
+  padding: 6px 14px;
+  border-radius: 12px;
+  color: #ffcc33;
+  font-weight: 700;
+}
+
+/* Individual power-up card */
+.powerup-card {
+  background: #111;
+  border-radius: 12px;
+  padding: 18px;
+  height: 140px;
+  display: flex;
+  position: relative;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Power-up card hover effect */
+.powerup-card:hover {
+  border: 1px solid #fc6f36;
+  box-shadow: 0 0 12px #fc6f36
+}
+
+/* Power-up icon wrapper */
+.icon-wrapper {
+  width: 55px;
+  height: 55px;
+  background: #1c1c1c;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+
+/* Icon color variants */
+.icon-wrapper.blue i { color: #4aa3ff; }
+.icon-wrapper.warning i { color: #ffc107; }
+.icon-wrapper.purple i { color: #bf7bff; }
+.icon-wrapper.orange i { color: #fc6f36; }
+
+/* Power-up info section */
+.info {
+  flex: 1;
+}
+
+/* Power-up title */
+.title {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+/* Power-up description */
+.desc {
+  color: #7f7f7f;
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+/* Power-up price */
+.price {
+  color: #ffcc33;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* Owned badge */
+.owned-badge {
+  position: absolute;
+  right: 15px;
+  top: 12px;
+  background: #003d1c;
+  color: #29bf12;
+  padding: 5px 14px;
+  border-radius: 50px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* Lock icon */
+.lock-icon {
+  position: absolute;
+  right: 18px;
+  bottom: 16px;
+  color: #29bf12;
+  font-size: 18px;
+}
+
+/* ===== MILESTONES SECTION STYLES ===== */
+/* Milestones main container */
+.milestones-section {
+  background: #060606;
+  border-radius: 20px;
+  border: 2px solid rgb(70, 70, 70);
+}
+
+/* Milestones list container */
+.milestone-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Individual milestone card */
+.milestone-card {
+  background: #0d0d0d;
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 12px;
+  padding: 16px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Completed milestone card */
+.milestone-card.done {
+  background: rgba(0, 120, 0, 0.25);       /* dark green */
+  border: 1px solid rgba(0, 255, 0, 0.18);
+}
+
+/* Milestone left content */
+.left {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+/* Milestone icon */
+.milestone-icon {
+  width: 40px;
+  height: 40px;
+  background: #1b1b1b;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: #777;
+}
+
+/* Completed milestone icon */
+.milestone-icon.done {
+  background: rgba(0, 255, 0, 0.2);
+  color: #29bf12;
+}
+
+/* Milestone title */
+.milestone-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: #eaeaea;
+}
+
+/* Milestone reward text */
+.milestone-reward {
+  font-size: 13px;
+  color: #bfbfbf;
+  margin-top: 3px;
+}
+
+/* Status badge */
+.status-badge {
+  padding: 6px 14px;
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* Green status badge */
+.status-badge.green {
+  background: #003d1c;
+  color: #29bf12;
+}
+
+/* Gray status badge */
+.status-badge.gray {
+  background: #1c1c1c;
+  color: #9c9c9c;
+}
+
+/* ===== PRO TIP SECTION STYLES ===== */
+/* Pro tip container */
+.pro-tip {
+  background: linear-gradient(90deg, #020617, #0b0614);
+  padding: 18px 22px;
+  border-radius: 14px;
+  border: 1px solid rgba(25, 118, 210, 0.3);
+  box-shadow: 0 0 12px rgba(0, 123, 255, 0.15);
+  margin: 22px 0;
+}
+
+/* Tip content layout */
+.tip-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Tip icon */
+.tip-icon {
+  width: 38px;
+  height: 38px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  background: rgba(0, 123, 255, 0.1);
+  color: #4ea8ff;
+  font-size: 18px;
+}
+
+/* Tip text content */
+.tip-text {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Tip title */
+.tip-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+/* Tip description */
+.tip-desc {
+  font-size: 13px;
+  margin-top: 4px;
+  color: #a0a0a0;
+}
+
+/* ===== SOCIAL CHALLENGES STYLES ===== */
+/* Social challenges wrapper */
+.social-challenges {
+  border-radius: 20px;
+  border: 1px solid rgb(58, 58, 58);
+}
+
+/* Challenges header */
+.sc-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Challenges title */
+.sc-title {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+/* Challenges subtitle */
+.sc-sub {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: -4px;
+}
+
+/* New challenge button */
+.sc-new-btn {
+  background: var(--accent);
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: none;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Challenges tabs container */
+.sc-tabs {
+  margin-top: 16px;
+  display: flex;
+  justify-content: space-around;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 8px;
+  padding: 6px;
+}
+
+/* Individual tab */
+.tab {
+  flex: 1;
+  padding: 8px 0;
+  text-align: center;
+  font-size: 14px;
+  color: var(--muted);
+  cursor: pointer;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+/* Active tab state */
+.tab.active {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-weight: 600;
+}
+
+/* Challenge card */
+.challenge-card {
+  background: var(--card);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 20px;
+  margin-top: 18px;
+  border-radius: 12px;
+}
+
+/* Challenge header inside card */
+.challenge-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+/* Challenge icon */
+.challenge-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+/* Challenge icon variants */
+.challenge-icon.orange {
+  background: rgba(252, 111, 54, 0.15);
+  color: var(--accent);
+}
+
+.challenge-icon.blue {
+  background: rgba(60, 120, 255, 0.15);
+  color: #4aa8ff;
+}
+
+.challenge-icon.purple {
+  background: rgba(165, 94, 255, 0.15);
+  color: #a55eff;
+}
+
+.challenge-icon.green {
+  background: rgba(0, 255, 0, 0.12);
+  color: #00c853;
+}
+
+/* Challenge info section */
+.challenge-info {
+  flex: 1;
+}
+
+/* Challenge name */
+.challenge-name {
+  font-weight: 700;
+  font-size: 15px;
+}
+
+/* Challenge subtitle */
+.challenge-sub {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* Challenge time indicator */
+.challenge-time {
+  font-size: 12px;
+  background: rgba(255,255,255,0.08);
+  padding: 4px 10px;
+  border-radius: 12px;
+  color: #ddd;
+}
+
+/* Challenge progress section */
+.challenge-progress {
+  margin-top: 10px;
+}
+
+/* Player progress line */
+.player-line {
+  display: grid;
+  grid-template-columns: 40px 120px 1fr 40px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+/* Player badge */
+.player-badge {
+  background: rgba(255,255,255,0.06);
+  padding: 6px 7px;
+  border-radius: 6px;
+  color: #eee;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* Player name */
+.player-name {
+  color: #eee;
+  font-size: 13px;
+}
+
+/* Progress bar wrapper */
+.bar-wrap {
+  width: 100%;
+  height: 8px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* Progress bar fill */
+.bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #fc6f36, #ff9d00);
+}
+
+/* Player score */
+.player-score {
+  font-size: 13px;
+  color: #e5e5e5;
+  text-align: right;
+}
+
+/* Challenge footer */
+.challenge-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 14px;
+}
+
+/* Reward display */
+.reward {
+  color: var(--muted);
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Share button */
+.share-btn {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 6px 12px;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+/* Completed challenge card */
+.completed-card {
+  background: rgba(0, 40, 0, 0.35);
+  border: 1px solid rgba(0, 255, 0, 0.25);
+}
+
+/* Done status badge */
+.status-badge.done {
+  background: rgba(0, 255, 0, 0.15);
+  color: #00e676;
+  padding: 4px 8px;
+  border-radius: 8px;
+  margin-left: 6px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+/* Green player score */
+.player-score.green {
+  color: #00e676;
+  font-weight: 700;
+}
+
+/* Muted player score */
+.player-score.muted {
+  color: var(--muted);
+}
+
+/* Hide progress bars in completed challenges */
+.no-bars .bar-wrap {
+  display: none;
+}
+
+/* ===== SUGGESTED CHALLENGES STYLES ===== */
+/* Suggested list container */
+.suggested-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+/* Suggested challenge card */
+.suggested-card {
+  background: var(--card);
+  border: 2px solid rgb(55, 55, 55);
+  padding: 18px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+/* Card top section */
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Card title */
+.title {
+  font-weight: 700;
+  font-size: 15px;
+}
+
+/* Players count */
+.players-count {
+  background: rgba(107,182,255,0.15);
+  color: #6bb6ff;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+}
+
+/* Card subtitle */
+.subtitle {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 6px;
+}
+
+/* Reward line */
+.reward-line {
+  margin-top: 16px;
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  color: #fcd45d;
+  font-size: 13px;
+}
+
+/* Card bottom section */
+.card-bottom {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 16px;
+}
+
+/* Start challenge button */
+.start-btn {
+  background: rgba(255,140,50,0.12);
+  border: 1px solid rgba(255,140,50,0.35);
+  color: #ff9736;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+/* Start button hover */
+.start-btn:hover {
+  background: rgba(255,140,50,0.2);
+}
+
+/* Custom challenge card */
+.custom-card {
+  margin-top: 8px;
+  background: linear-gradient(90deg, #1a1a1a, #0c0614);
+  padding: 18px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+/* Custom title */
+.custom-title {
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  color: #fc6f36;
+  gap: 6px;
+  font-size: 15px;
+}
+
+/* Custom subtitle */
+.custom-sub {
+  color: var(--muted);
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+/* Custom button */
+.custom-btn {
+  margin-top: 14px;
+  background: #fc6f36;
+  color: white;
+  border-radius: 8px;
+  font-weight: bold;
+  padding: 8px 14px;
+  font-size: 13px;
+  cursor: pointer;
+  border: none;
+}
+
+/* Custom button hover */
+.custom-btn:hover {
+  background: #e47246;
+}
+
+/* ===== CUSTOM MODAL STYLES ===== */
+/* Modal overlay for custom challenges */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.65);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+/* Custom modal box */
+.custom-modal {
+  width: 420px;
+  background: #0f0f0f;
+  border-radius: 14px;
+  padding: 20px;
+  border: 1px solid rgba(255,255,255,0.05);
+  box-shadow: 0 0 12px rgba(255, 140, 50, 0.2);
+  animation: fadeIn 0.25s ease-in-out;
+}
+
+/* Modal entrance animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.93); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Modal header */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Modal title */
+.modal-title {
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  gap: 8px;
+  color: #fc6f36;
+}
+
+/* Modal close button */
+.modal-close {
+  background: none;
+  border: none;
+  color: #aaa;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+/* Close button hover */
+.modal-close:hover {
+  color: #fff;
+}
+
+/* Modal form content */
+.modal-content {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Modal form labels */
+.modal-content label {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* Modal form inputs */
+.modal-content input,
+.modal-content textarea,
+.modal-content select {
+  background: #1b1b1b;
+  border: 1px solid rgba(255,255,255,0.07);
+  padding: 8px 10px;
+  border-radius: 8px;
+  color: #eee;
+  font-size: 14px;
+}
+
+/* Modal textarea */
+.modal-content textarea {
+  height: 80px;
+  resize: none;
+}
+
+/* Modal create button */
+.modal-create-btn {
+  margin-top: 18px;
+  width: 100%;
+  background: #fc6f36;
+  color: white;
+  border: none;
+  padding: 10px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+/* Create button hover */
+.modal-create-btn:hover {
+  background: #e47246;
+}
+
+/* ===== CUSTOM DROPDOWN STYLES ===== */
+/* Custom dropdown container */
+.custom-dropdown {
+  position: relative;
+  width: 100%;
+}
+
+/* Dropdown selected value */
+.dropdown-selected {
+  background: #1b1b1b;
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 10px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  color: #ccc;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.2s;
+}
+
+/* Dropdown hover state */
+.dropdown-selected:hover {
+  border-color: #fc6f36;
+}
+
+/* Dropdown chevron icon */
+.dropdown-selected i {
+  color: #888;
+}
+
+/* Dropdown list */
+.dropdown-list {
+  position: absolute;
+  top: 105%;
+  left: 0;
+  width: 100%;
+  background: #111;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 10px;
+  z-index: 20;
+  padding: 6px 0;
+  animation: fadeDropdown 0.2s ease;
+}
+
+/* Dropdown animation */
+@keyframes fadeDropdown {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Dropdown item */
+.dropdown-item {
+  padding: 10px 14px;
+  cursor: pointer;
+  color: #ddd;
+  transition: 0.2s;
+}
+
+/* Dropdown item hover */
+.dropdown-item:hover {
+  background: rgba(252, 111, 36, 0.15);
+  color: #fc6f36;
+}
+
+/* ===== BADGE COLLECTION STYLES ===== */
+/* Badge collection main container */
+.badge-collection {
+  margin: 20px 0;
+}
+
+/* Badge collection header */
+.bc-header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Badge collection title */
+.bc-title {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+/* Badge collection subtitle */
+.bc-sub {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* Progress bar container */
+.bc-progress {
+  width: 100%;
+  height: 8px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Progress bar fill */
+.bc-progress .progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #fc6f36, #ff9d00);
+  border-radius: 8px;
+}
+
+/* Progress percentage */
+.bc-percent {
+  color: #ffb74d;
+  font-size: 13px;
+  text-align: right;
+}
+
+/* Badge tabs container */
+.bc-tabs {
+  display: flex;
+  gap: 8px;
+  margin: 16px 0;
+}
+
+/* Badge tab */
+.bc-tabs .tab {
+  background: rgba(255,255,255,0.05);
+  padding: 6px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  cursor: pointer;
+  color: var(--muted);
+}
+
+/* Active badge tab */
+.bc-tabs .tab.active {
+  background: rgba(252,111,54,0.15);
+  border: 1px solid #fc6f36;
+  color: #ff9d00;
+  font-weight: bold;
+}
+
+/* Limited time banner */
+.limited-banner {
+  background: rgba(255, 193, 7, 0.1);
+  border: 1px solid rgba(255, 193, 7, 0.3);
+  padding: 12px;
+  border-radius: 10px;
+  margin-bottom: 16px;
+  color: #fcd45d;
+  font-size: 14px;
+}
+
+/* Banner subtitle */
+.limited-banner .banner-sub {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+/* ===== BADGES GRID STYLES ===== */
+/* Badges grid layout (3 columns always) */
+.badges-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 16px;
+}
+
+/* Locked badges styling */
+.locked-badge {
+  opacity: 1;
+  filter: none;
+}
+
+/* Highlight for unlocked badges */
+.highlight {
+  box-shadow: 0 0 18px rgba(255, 255, 255, 0.15);
+}
+
+/* Badge tabs container */
+.badge-tabs {
+  display: flex;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+/* Individual badge tab */
+.badge-tab {
+  padding: 8px 16px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.05);
+  cursor: pointer;
+  color: var(--muted);
+  border: 1px solid transparent;
+}
+
+/* Active badge tab */
+.badge-tab.active {
+  background: rgba(252, 111, 54, 0.15);
+  border: 1px solid #fc6f36;
+  color: #fff;
+  font-weight: 600;
+}
+
+/* Limited time banner */
+.limited-banner {
+  padding: 12px;
+  border-radius: 10px;
+  background: rgba(255, 200, 0, 0.06);
+  border: 1px solid rgba(255,200,0,0.15);
+  margin-bottom: 20px;
+}
+
+/* Individual badge card */
+.badge-card {
+  padding: 22px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.05);
+  text-align: center;
+}
+
+/* Badge icon */
+.badge-icon {
+  font-size: 28px;
+  margin-bottom: 12px;
+}
+
+/* Badge rarity tags */
+.badge-tags span {
+  padding: 2px 10px;
+  border-radius: 10px;
+  font-size: 11px;
+  margin-right: 5px;
+}
+
+/* Rarity color variants */
+.legendary {
+  background: rgba(255, 215, 0, 0.12);
+  color: #ffe27b !important;
+}
+.epic {
+  background: rgba(180, 70, 255, 0.12);
+  color: #d38bff !important;
+}
+.rare {
+  background: rgba(0, 125, 255, 0.12);
+  color: #6bb6ff !important;
+}
+.limited {
+  background: rgba(255, 80, 80, 0.12);
+  color: #ff6b6b !important;
+  border: 1px solid rgba(255,80,80,0.25);
+}
+
+/* Badge progress bar */
+.badge-bar {
+  width: 100%;
+  height: 6px;
+  background: rgba(255,255,255,0.05);
+  margin: 8px 0;
+  border-radius: 10px;
+}
+
+/* Progress bar fill */
+.badge-bar .fill {
+  height: 100%;
+  background: linear-gradient(90deg, #fc6f36, #ff9d00);
+  border-radius: 10px;
+}
+
+/* ===== RESPONSIVE BADGES GRID ===== */
+/* Tablet responsive */
+@media (max-width: 768px) {
+  .badges-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+/* Mobile responsive */
+@media (max-width: 480px) {
+  .badges-grid {
+    grid-template-columns: repeat(1, 1fr) !important;
+  }
+}
+
+/* Locked tag styling */
+.locked-tag {
+  background: rgba(255, 80, 80, 0.15);
+  color: #ff6b6b;
+  border: 1px solid rgba(255, 80, 80, 0.4);
+  padding: 2px 10px;
+  font-size: 11px;
+  border-radius: 8px;
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  font-weight: 600;
+}
+
+.locked-tag i {
+  font-size: 10px;
+}
+
+/* Badge icon color variants */
+.badge-card.legendary .badge-icon i {
+  color: #ffd700; /* Gold */
+}
+
+.badge-card.epic .badge-icon i {
+  color: #d38bff; /* Purple Glow */
+}
+
+.badge-card.rare .badge-icon i {
+  color: #6bb6ff; /* Blue */
+}
+
+/* Badge icon base styling */
+.badge-icon i {
+  font-size: 32px;
+  margin-bottom: 6px;
+}

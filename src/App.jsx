@@ -6,6 +6,9 @@ import Landing from "./pages/Landing";
 // import Post from "./components/home/Post";
 // import Sidebar from "./components/home/Sidebar";
 import Home from "./pages/Home";
+import Explore from "./pages/Explore";
+import Goal from "./pages/Goal";
+import Read from "./pages/Read";
 
 export default function App() {
   return (
@@ -13,6 +16,9 @@ export default function App() {
       <Route path="/" element={<Landing />} />
       <Route path="/login" element={<Login />} />
       <Route path="/home" element={<Home />} />
+      <Route path="/explore" element={<Explore />} />
+      <Route path="/goals" element={<Goal />} />
+      <Route path="/read" element={<Read />} />
       {/* <Route path="/navbar" element={<Navbar />} /> */}
       {/* <Route path="/footer" element={<Footer />} /> */}
       {/* <Route path="/post" element={<Post />} /> */}
